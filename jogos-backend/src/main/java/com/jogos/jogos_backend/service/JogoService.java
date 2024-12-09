@@ -34,4 +34,28 @@ public class JogoService {
     public Jogo createJogo(Jogo jogo) {
         return repository.save(jogo);
     }
+
+    // Atualizar um jogo
+    public Jogo updateJogo(Long id, Jogo jogo) {
+        Jogo existingJogo = getJogoById(id);
+
+        existingJogo.setNome(jogo.getNome());
+        existingJogo.setDtLancamento(jogo.getDtLancamento());
+        existingJogo.setDesenvolvedor(jogo.getDesenvolvedor());
+        existingJogo.setGenero(jogo.getGenero());
+        existingJogo.setPlataformas(jogo.getPlataformas());
+        existingJogo.setPreco(jogo.getPreco());
+
+        return repository.save(existingJogo);
+    }
+
+    // Excluir um jogo
+    public void deleteJogo(Long id) {
+        Jogo jogo = getJogoById(id);
+        repository.delete(jogo);
+    }
+
+    public void deleteAllJogos() {
+        repository.deleteAll();
+    }
 }

@@ -9,5 +9,5 @@ public enum Genero {
     SIMULACAO,
     ESPORTE,
     CORRIDA,
-    LUTA
+    LUTA;
 }

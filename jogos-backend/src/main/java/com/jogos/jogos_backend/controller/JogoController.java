@@ -20,12 +20,27 @@ public class JogoController {
     }
 
     @GetMapping("/{id}")
-    public Jogo getJogoById(Long id) {
+    public Jogo getJogoById(@PathVariable Long id) {
         return service.getJogoById(id);
     }
 
     @PostMapping
     public Jogo createJogo(@RequestBody Jogo jogo) {
         return service.createJogo(jogo);
+    }
+
+    @PutMapping("/{id}")
+    public Jogo updateJogo(@PathVariable Long id, @RequestBody Jogo jogo) {
+        return service.updateJogo(id, jogo);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteJogo(Long id) {
+        service.deleteJogo(id);
+    }
+
+    @DeleteMapping
+    public void deleteAllJogos() {
+        service.deleteAllJogos();
     }
 }
